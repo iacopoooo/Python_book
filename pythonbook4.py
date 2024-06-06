@@ -1,3 +1,75 @@
+print ("========= Esempio 1: =========")
+
+class Automobile:
+    def __new__(cls, *args, **kwargs):
+        print("Chiamato __new__")
+        instance = super().__new__(cls)  # Creazione dell'istanza
+        return instance
+
+    def __init__(self, marca, modello, anno):
+        print("Chiamato __init__")
+        self.marca = marca
+        self.modello = modello
+        self.anno = anno
+
+    def descrizione(self):
+        return f"{self.marca} {self.modello} del {self.anno}"
+
+    def accendi(self):
+        return f"{self.marca} {self.modello} è accesa."
+
+# Creazione di un'istanza della classe Automobile
+auto1 = Automobile("Fiat", "Punto", 2020)
+#auto2 = Automobile("Tesla", "Model S", 2022)
+"""se decommentassi auto2, nell'output avrei 
+Chiamato __new__
+Chiamato __init__
+Chiamato __new__
+Chiamato __init__, 
+questo perchè ho due istanze auto1 e auto2"""
+# Utilizzo dei metodi
+print(auto1.descrizione())
+print(auto1.accendi())
+
+print("========= Fine esempio 1 ========= \n")
+#per semplicità viene omesso il costruttore new
+#pertanto tutti le classi python iniziano con init direttamente
+
+print("========= Esempio 2: =========")
+print("USATE QUESTO")
+class Automobile:  # classe
+    def __init__(self, marca, modello, anno):  # metodo
+        self.marca = marca  # attributo
+        self.modello = modello  # attributo
+        self.anno = anno  # attributo
+
+    def descrizione(self):  # metodo
+        print(f"{self.marca} {self.modello} del {self.anno}")  # metodo
+        #notare la print direttamente nel metodo
+
+    def accendi(self):  # metodo
+        return f"{self.marca} {self.modello} è accesa."  # metodo
+#qui ho utilizzato return, per cui quando chiamo il metodo devo utilizzare print
+
+# Creazione di istanze della classe Automobile
+auto1 = Automobile("Fiat", "Punto", 2020)  # istanza
+auto2 = Automobile("Tesla", "Model S", 2022)  # istanza
+
+# Utilizzo dei metodi
+
+#print è nella creazione del metodo
+auto1.descrizione()  # metodo
+
+#qui non c'era è allora devo inserire print
+print(auto2.accendi())  # metodo
+
+print("========= Fine esempio 2 =========")
+
+"""
+La maggior parte delle classi in Python rappresenta tipi mutabili (cioè, i loro attributi possono cambiare dopo la creazione dell'istanza). __init__ è perfetto per questo scopo.
+__new__ è più adatto ai tipi immutabili, come le tuple, gli interi, le stringhe, ecc., dove l'oggetto deve essere completamente costruito prima che qualsiasi cosa possa essere fatta su di esso.
+In altre parole nel 99% dei casi utilizzerete init
+"""
 
 #Dichiarazione di classe
 class Animale:
