@@ -1,5 +1,5 @@
-
-#Clienttcp
+#in  uno script separato
+#Client_tcp
 import socket
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
