@@ -61,4 +61,5 @@ while True:
     print(f"Connessione da {address} è stata stabilita!")
     clientsocket.send(bytes("Benvenuto al server!", "utf-8"))
     clientsocket.close()
+    #in uno script separato create il file client
 
